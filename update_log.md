@@ -14,6 +14,8 @@
 ### To-do:
 > Add compatability for choosing brands from the store. Currently it is generic and you select a brand when using the item, but later I want brands to show separately in your inventory.
 
+> Add weed
+
 > (Cigs)
 - Marl Red : 5
 - Marl Gold : 6
