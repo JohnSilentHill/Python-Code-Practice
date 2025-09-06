@@ -21,9 +21,7 @@ beers_count = 10
 def smoke():
     
     # Pull variables
-    global coolness_factor
-    global cigarettes_count
-    global cigarettes_smoked
+    global coolness_factor, cigarettes_count, cigarettes_smoked
    
     # Brands list
     cig_brands = ["Newport", "Camel", "Marlboro Red", "Marlboro Gold"]
@@ -75,9 +73,7 @@ def smoke():
 def drink():
 
     # Pull variables
-    global coolness_factor
-    global beers_count
-    global beers_drank
+    global coolness_factor, beers_count, beers_drank
 
     # Brands list
     beer_brands = ["Budweiser", "Heineken", "Corona", "Moretti"]
@@ -186,8 +182,7 @@ def store():
 def stats():
 
     # Pull variables
-    global cigarettes_smoked
-    global beers_drank
+    global cigarettes_smoked, beers_drank
 
     while True:
         delayed_print("---------------------", 0.5)
