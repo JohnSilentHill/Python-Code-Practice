@@ -7,9 +7,9 @@
 
 > Standardised the 'choice' function's input request to "Your choice:". This applies to the store and the menu.
 
+> Listed the global variables in 1 line rather than stacking.
+
 ### To-do:
 > Add compatability for choosing brands from the store. Currently it is generic and you select a brand when using the item, but later I want brands to show separately in your inventory.
 
 > Add the choice function standardisation to the item usage actions. As of now, they are just a generic input but it needs the "Your choice:" formatting too.
-
-> List the global variables in 1 line rather than stacking.
