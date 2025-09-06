@@ -30,7 +30,8 @@
 - Heineken : 6
 - Desperados : 3
 - Guiness : 10 (counts for 2 drank)
-- Carling : 3
+- Carling : 2
 - Coors Light : 1
+
 
 
