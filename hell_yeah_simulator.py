@@ -163,7 +163,7 @@ def store():
                 money -= 12
                 delayed_print("You bought 1 pack of Cigarettes (10).")
             else:
-                delayed_print("Not enough money.")
+                delayed_print("Not enough money. Go earn some.")
         
         elif buy == "exit":
             delayed_print("Leaving store...")
