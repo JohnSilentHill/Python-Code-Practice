@@ -35,12 +35,12 @@ def smoke():
         delayed_print(f"Your coolness factor is currently {coolness_factor}!", 1)
         delayed_print(f"You currently have {cigarettes_count} cigarettes.", 1)
 
-        if cigarettes_smoked >= 10:
+        if cigarettes_smoked >= 500:
             if random.random() < 0.5:
                 delayed_print("Your lungs imploded and you died.", 1)
                 break
 
-        if cigarettes_smoked == 9:
+        if cigarettes_smoked == 499:
             delayed_print("Just a heads up, you've smoked 9 cigs. Smoking one more will likely kill you.", 1)
 
         if cigarettes_count <= 0:
@@ -124,8 +124,50 @@ def drink():
         else:
             delayed_print("Accepted answers are Y or N.", 1)
 
-# S----- STORE FUNCTION HERE -----
+# ----- STORE FUNCTION HERE -----
 
+def store():
+    global money, inventory, beers_count, cigarettes_count
+
+    while True:
+        delayed_print("---------------------", 0.5)    # this whole stack is so ugly, please find a way to compact it?
+        delayed_print("STORE:", 0.5)
+        delayed_print("Please select one of the options below by typing in the abbreviation.", 0.5)
+        delayed_print("---------------------", 0.5)
+        delayed_print("Buy Beer : $4 : (Type: 'beer')", 0.5)
+        delayed_print("Buy Cigarettes Pack (10) : $12 : (Type: 'cigs')", 0.5)
+        delayed_print("Leave Store : (Type: 'exit')", 0.5)
+        delayed_print(f"Current Money: ${money}", 0.5)
+        delayed_print("---------------------", 0.5)
+
+        buy = input("Your choice: ").strip().lower()
+
+        if buy == "beer":
+            if money >= 4:
+                beers_count += 1
+                money -= 4
+                delayed_print("You bought 1 Beer.")
+            else:
+                delayed_print("Not enough money.")
+        
+        elif buy == "cigs":
+            if money >= 12:
+                cigarettes_count += 10
+                money -= 12
+                delayed_print("You bought 1 pack of Cigarettes (10).")
+            else:
+                delayed_print("Not enough money.")
+        
+        elif buy == "exit":
+            delayed_print("Leaving store...")
+            delayed_print("---------------------", 0.5)
+            break
+        
+        else:
+            delayed_print("Invalid option. Try again.")
+
+        delayed_print(f"Money left: ${money}")
+            
 
 
 # ----- STATS FUNCTION -----
@@ -159,19 +201,22 @@ menu_lines = [
 while True:
     print("Welcome to Hell Yeah Simulator.")
     time.sleep(1)
-    print("What would you like to do? Your options are the following:")
+    print("What would you like to do?")
     time.sleep(1)
 
     for line in menu_lines:
         delayed_print(line)
 
-    do = input().strip().lower()
+    do = input("Your choice: ").strip().lower()
 
     if do == "smoke":
         smoke()  # Calls the smoking function
 
     elif do == "drink":
         drink() # Calls the drinking function
+
+    elif do == "store":
+        store()
 
     elif do == "stats":
         stats() # You guessed it, calls the stats function
