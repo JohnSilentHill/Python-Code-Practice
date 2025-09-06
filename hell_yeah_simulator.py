@@ -46,11 +46,11 @@ def smoke():
             break
 
         delayed_print("Would you like to smoke one? (Y/N)", 0)
-        smoke_input = input().strip().lower()
+        smoke_input = input("Your choice: ").strip().lower()
 
         if smoke_input == "y":
             delayed_print(f"Which brand would you like to smoke? Your options are: {', '.join(cig_brands)}", 0)
-            brandAsk = input().strip().lower()
+            brandAsk = input("Your choice: ").strip().lower()
 
             if brandAsk in cigbrands:
                 chosen_brand = cigbrands[brandAsk]
@@ -98,11 +98,11 @@ def drink():
             break
 
         delayed_print("Would you like to drink one? (Y/N)", 0)
-        drink_input = input().strip().lower()
+        drink_input = input("Your choice: ").strip().lower()
 
         if drink_input == "y":
             delayed_print(f"Which beer are you cracking open? Your options are: {', '.join(beer_brands)}", 0)
-            brandAsk = input().strip().lower()
+            brandAsk = input("Your choice: ").strip().lower()
 
             if brandAsk in beerbrands:
                 chosen_brand = beerbrands[brandAsk]
