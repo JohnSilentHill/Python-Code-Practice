@@ -35,5 +35,13 @@
 - Carling : 2
 - Coors Light : 1
 
+> (Weed)
+- OG Cali : 7
+- Papaya Zangria : 8
+- Toad Venom : 10
+- Sour Diesel : 6
+
+
+
 
 
