@@ -126,19 +126,30 @@ def drink():
 
 # ----- STORE FUNCTION HERE -----
 
+# This handles the menu
+
+def show_store_menu():
+    store_menu = [  # This table compacts the old stupid bulky list
+        "---------------------",
+        "STORE:",
+        "Please select one of the options below by typing in the abbreviation.",
+        "---------------------",
+        "Buy Beer : $4 : (Type: 'beer')",
+        "Buy Cigarettes Pack (10) : $12 : (Type: 'cigs')",
+        "Leave Store : (Type: 'exit')",
+        f"Current Money: ${money}",
+        "---------------------"
+    ]
+    for line in store_menu:
+        delayed_print(line, 0.5)
+
+# This handles the input functions
+
 def store():
     global money, inventory, beers_count, cigarettes_count
 
     while True:
-        delayed_print("---------------------", 0.5)    # this whole stack is so ugly, please find a way to compact it?
-        delayed_print("STORE:", 0.5)
-        delayed_print("Please select one of the options below by typing in the abbreviation.", 0.5)
-        delayed_print("---------------------", 0.5)
-        delayed_print("Buy Beer : $4 : (Type: 'beer')", 0.5)
-        delayed_print("Buy Cigarettes Pack (10) : $12 : (Type: 'cigs')", 0.5)
-        delayed_print("Leave Store : (Type: 'exit')", 0.5)
-        delayed_print(f"Current Money: ${money}", 0.5)
-        delayed_print("---------------------", 0.5)
+        show_store_menu()
 
         buy = input("Your choice: ").strip().lower()
 
@@ -189,7 +200,7 @@ def stats():
 
 # ----- MENU FUNCTION -----
 
-menu_lines = [
+menu_lines = [ # This table acts the same as the store function and compacts dialogue
     "---------------------",
     "Smoke cigarettes (Smoke)",
     "Drink beer (Drink)",
@@ -208,6 +219,8 @@ while True:
         delayed_print(line)
 
     do = input("Your choice: ").strip().lower()
+
+    # Disgusting elif statements
 
     if do == "smoke":
         smoke()  # Calls the smoking function
