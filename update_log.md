@@ -14,8 +14,9 @@
 ## 07.09.25
 
 ### Hell Yeah Simulator
+> Added coolness values for beer and cig brands. Easily copiable and configurable for any future items now.
 
-> Added coolness values for beer brands. Easily copiable and configurable for any future items now.
+> Tidied up the user input function by adding more line breaks.
 
 ### Created a New Project
 
@@ -25,16 +26,7 @@
 > Add compatability for choosing brands from the store. Currently it is generic and you select a brand when using the item, but later I want brands to show separately in your inventory.
 
 > Add weed
-
-> (Cigs)
-- Marl Red : 5
-- Marl Gold : 6
-- Newport : 5
-- Camel : 7
-- Am Spirit Blacks : 10
-- L&B : 1 OR 2 (50%)
-- L&M Blue : 8
-
+> 
 > (Weed)
 - OG Cali : 7
 - Papaya Zangria : 8
