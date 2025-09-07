@@ -11,6 +11,10 @@
 
 > Added the choice function standardisation to the item usage actions. Before now, they were just a generic input prompts.
 
+## 07.09.25
+
+> Added coolness values for beer brands. Easily copiable and configurable for any future items now.
+
 ## To-do:
 > Add compatability for choosing brands from the store. Currently it is generic and you select a brand when using the item, but later I want brands to show separately in your inventory.
 
@@ -24,16 +28,6 @@
 - Am Spirit Blacks : 10
 - L&B : 1 OR 2 (50%)
 - L&M Blue : 8
-
-> (Beer)
-- Moretti : 5
-- Budweiser : 6
-- Corona : 2
-- Heineken : 6
-- Desperados : 3
-- Guiness : 10 (counts for 2 drank)
-- Carling : 2
-- Coors Light : 1
 
 > (Weed)
 - OG Cali : 7
