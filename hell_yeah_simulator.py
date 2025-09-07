@@ -7,7 +7,6 @@ def delayed_print(text, delay=0.5): # Default text delay is .5 seconds
     time.sleep(delay)
 
 ## GLOBAL VARIABLES -- these can be accessed from all functions and essentially save as you switch 
-## You can edit money or cigarettes starting values as you please
 
 coolness_factor = 0
 money = 25
@@ -75,11 +74,27 @@ def drink():
     # Pull variables
     global coolness_factor, beers_count, beers_drank
 
-    # Brands list
-    beer_brands = ["Budweiser", "Heineken", "Corona", "Moretti"]
+     # Pull global variables
+    global coolness_factor, beers_count, beers_drank
 
-    # Dictionary
+    # Coolness dictionary
+    coolness_factors = {
+        "Budweiser": 6,
+        "Heineken": 6,
+        "Corona": 2,
+        "Moretti": 5,
+        "Desperados": 3,
+        "Guiness": 10,
+        "Carling": 2,
+        "Coors Light": 1
+    }
+
+    # Drink names
+    beer_brands = list(coolness_factors.keys())
+
+    # Lookup tables
     beerbrands = {brand.lower(): brand for brand in beer_brands}
+    coolness_lookup = {k.lower(): v for k, v in coolness_factors.items()}
 
     while True:
         delayed_print(f"Your coolness factor is currently {coolness_factor}!", 1)
@@ -101,15 +116,27 @@ def drink():
         drink_input = input("Your choice: ").strip().lower()
 
         if drink_input == "y":
-            delayed_print(f"Which beer are you cracking open? Your options are: {', '.join(beer_brands)}", 0)
+            delayed_print(f"Which beer are you cracking open? Your options are: {', '.join(beer_brands)}", 0.5)
             brandAsk = input("Your choice: ").strip().lower()
 
             if brandAsk in beerbrands:
-                chosen_brand = beerbrands[brandAsk]
-                delayed_print(f"You chugged a {chosen_brand}.", 1)
-                coolness_factor += 1
-                beers_drank += 1
+                brand_proper = beerbrands[brandAsk]
                 beers_count -= 1
+                
+                if brand_proper.lower() == "guiness": # Counts for 2
+                    beers_drank += 2
+                
+                elif brand_proper.lower() == "coors light": # Counts for 0, pathetic drink
+                    beers_drank -= 0
+
+                else:
+                    beers_drank += 1
+
+                points = coolness_lookup[brandAsk]
+                coolness_factor += points
+
+                delayed_print(f"You chugged a {brand_proper}.", 1)
+                delayed_print(f"You gained {points} coolness points!", 1)
             else:
                 delayed_print("That's not one of the options, dumbass.", 1)
 
@@ -190,6 +217,7 @@ def stats():
         delayed_print(f"You have smoked {cigarettes_smoked} cigs and drank {beers_drank} beers.", 0.5)
         time.sleep(1) # This is here because the stupid delayed_print below doesn't want to work
         delayed_print("Press any key to return to the menu.", 1)
+        delayed_print("---------------------", 0.5)
         msvcrt.getch()
         break
 
@@ -201,7 +229,8 @@ menu_lines = [ # This table acts the same as the store function and compacts dia
     "Drink beer (Drink)",
     "Go to the store (Store)",
     "View your stats (Stats)",
-    "Quit the game (Quit)"
+    "Quit the game (Quit)",
+    "---------------------"
 ]
 
 while True:
@@ -218,16 +247,16 @@ while True:
     # Disgusting elif statements
 
     if do == "smoke":
-        smoke()  # Calls the smoking function
+        smoke()
 
     elif do == "drink":
-        drink() # Calls the drinking function
+        drink() 
 
     elif do == "store":
         store()
 
     elif do == "stats":
-        stats() # You guessed it, calls the stats function
+        stats() 
 
     elif do == "quit":
         print("See you later.")
