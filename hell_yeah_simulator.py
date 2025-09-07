@@ -18,17 +18,31 @@ beers_count = 10
 # ----- SMOKING FUNCTION -----
 
 def smoke():
-    
+    import random  # Needed for lung failure check
+
     # Pull variables
     global coolness_factor, cigarettes_count, cigarettes_smoked
-   
-    # Brands list
-    cig_brands = ["Newport", "Camel", "Marlboro Red", "Marlboro Gold"]
 
-    # Dictionary
-    cigbrands = {cigbrand.lower(): cigbrand for cigbrand in cig_brands}
+    # Coolness dictionary
+    cigcoolness_factors = {
+        "Newport": 7,
+        "Camel": 4,
+        "Marlboro Red": 6,
+        "Marlboro Gold": 5,
+        "American Spirit Blacks": 10,
+        "L&B": 2,
+        "L&M Blue": 8
+    }
+
+    # Cig names
+    cig_brands = list(cigcoolness_factors.keys())
+
+    # Lookup tables
+    cigbrands = {brand.lower(): brand for brand in cig_brands}
+    coolness_lookup = {k.lower(): v for k, v in cigcoolness_factors.items()}
 
     while True:
+        delayed_print("---------------------", 0.5)
         delayed_print(f"Your coolness factor is currently {coolness_factor}!", 1)
         delayed_print(f"You currently have {cigarettes_count} cigarettes.", 1)
 
@@ -38,33 +52,48 @@ def smoke():
                 break
 
         if cigarettes_smoked == 499:
-            delayed_print("Just a heads up, you've smoked 9 cigs. Smoking one more will likely kill you.", 1)
+            delayed_print("Just a heads up, you've smoked 499 cigs. Smoking one more will likely kill you.", 1)
 
         if cigarettes_count <= 0:
             delayed_print("You're out of cigs. Go buy more from the shop.", 1)
             break
 
+        delayed_print("---------------------", 0.5)
         delayed_print("Would you like to smoke one? (Y/N)", 0)
+        delayed_print("---------------------", 0.5)
         smoke_input = input("Your choice: ").strip().lower()
 
         if smoke_input == "y":
+            delayed_print("---------------------", 0.5)
             delayed_print(f"Which brand would you like to smoke? Your options are: {', '.join(cig_brands)}", 0)
             brandAsk = input("Your choice: ").strip().lower()
 
             if brandAsk in cigbrands:
                 chosen_brand = cigbrands[brandAsk]
-                delayed_print(f"You smoked a {chosen_brand} cigarette.", 1)
-                coolness_factor += 1
-                cigarettes_smoked += 1
                 cigarettes_count -= 1
+
+                # Exceptions
+                if chosen_brand.lower() == "american spirit blacks":
+                    cigarettes_smoked += 2
+                else:
+                    cigarettes_smoked += 1
+
+                points = coolness_lookup[brandAsk]
+                coolness_factor += points
+
+                delayed_print("---------------------", 0.5)
+                delayed_print(f"You smoked a {chosen_brand} cigarette.", 1)
+                delayed_print(f"You gained {points} coolness points!", 1)
             else:
                 delayed_print("That's not one of the options, dumbass.", 1)
 
         elif smoke_input == "n":
+            delayed_print("---------------------", 0.5)
             delayed_print("Fair enough.", 1)
             break
 
         else:
+            delayed_print("---------------------", 0.5)
             delayed_print("Accepted answers are Y or N.", 1)
 
 # ----- DRINKING FUNCTION -----
@@ -74,11 +103,8 @@ def drink():
     # Pull variables
     global coolness_factor, beers_count, beers_drank
 
-     # Pull global variables
-    global coolness_factor, beers_count, beers_drank
-
     # Coolness dictionary
-    coolness_factors = {
+    beercoolness_factors = {
         "Budweiser": 6,
         "Heineken": 6,
         "Corona": 2,
@@ -90,13 +116,14 @@ def drink():
     }
 
     # Drink names
-    beer_brands = list(coolness_factors.keys())
+    beer_brands = list(beercoolness_factors.keys())
 
     # Lookup tables
     beerbrands = {brand.lower(): brand for brand in beer_brands}
-    coolness_lookup = {k.lower(): v for k, v in coolness_factors.items()}
+    coolness_lookup = {k.lower(): v for k, v in beercoolness_factors.items()}
 
     while True:
+        delayed_print("---------------------", 0.5)
         delayed_print(f"Your coolness factor is currently {coolness_factor}!", 1)
         delayed_print(f"You currently have {beers_count} beers.", 1)
 
@@ -112,10 +139,12 @@ def drink():
             delayed_print("You're out of beer. Go buy more from the shop.", 1)
             break
 
+        delayed_print("---------------------", 0.5)
         delayed_print("Would you like to drink one? (Y/N)", 0)
         drink_input = input("Your choice: ").strip().lower()
 
         if drink_input == "y":
+            delayed_print("---------------------", 0.5)
             delayed_print(f"Which beer are you cracking open? Your options are: {', '.join(beer_brands)}", 0.5)
             brandAsk = input("Your choice: ").strip().lower()
 
@@ -123,6 +152,7 @@ def drink():
                 brand_proper = beerbrands[brandAsk]
                 beers_count -= 1
                 
+                # Exceptions
                 if brand_proper.lower() == "guiness": # Counts for 2
                     beers_drank += 2
                 
@@ -135,16 +165,19 @@ def drink():
                 points = coolness_lookup[brandAsk]
                 coolness_factor += points
 
+                delayed_print("---------------------", 0.5)
                 delayed_print(f"You chugged a {brand_proper}.", 1)
                 delayed_print(f"You gained {points} coolness points!", 1)
             else:
                 delayed_print("That's not one of the options, dumbass.", 1)
 
         elif drink_input == "n":
+            delayed_print("---------------------", 0.5)
             delayed_print("Fair enough.", 1)
             break
 
         else:
+            delayed_print("---------------------", 0.5)
             delayed_print("Accepted answers are Y or N.", 1)
 
 # ----- STORE FUNCTION HERE -----
@@ -234,6 +267,7 @@ menu_lines = [ # This table acts the same as the store function and compacts dia
 ]
 
 while True:
+    delayed_print("---------------------", 0.5)
     print("Welcome to Hell Yeah Simulator.")
     time.sleep(1)
     print("What would you like to do?")
