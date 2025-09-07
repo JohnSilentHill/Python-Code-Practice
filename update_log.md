@@ -13,6 +13,8 @@
 
 ## 07.09.25
 
+### Hell Yeah Simulator
+
 > Added coolness values for beer brands. Easily copiable and configurable for any future items now.
 
 ## To-do:
