@@ -1,17 +1,19 @@
 # UPDATE LOG
 
-## 07.09.25
-
-### Hell Yeah Simulator
-> Added coolness values for beer and cig brands. Easily copiable and configurable for any future items now.
-
-> Tidied up the user input function by adding more line breaks.
+## 08.09.25
 
 ### Password Generator
 
 > Learned some cool stuff about importing strings, using len(), finding parts of a string, and splitting.
 
 > Actually made it work!
+
+## 07.09.25
+
+### Hell Yeah Simulator
+> Added coolness values for beer and cig brands. Easily copiable and configurable for any future items now.
+
+> Tidied up the user input function by adding more line breaks.
 
 ## 06.09.25
 
