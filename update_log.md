@@ -13,6 +13,8 @@
 > Learned some cool stuff about importing strings, using len(), finding parts of a string, and splitting.
 >
 > Actually made it work!
+>
+> Added a feature where it has a go at you if you enter 10 or more wrong commands.
 
 ## 07.09.25
 
