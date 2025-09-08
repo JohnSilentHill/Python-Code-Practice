@@ -2,6 +2,11 @@
 
 ## 08.09.25
 
+### Custom Terminal
+
+> Made the framework for a custom terminal.
+> Added some basic commands ("help", "exit", "hello", "pwordgen")
+
 ### Password Generator
 
 > Learned some cool stuff about importing strings, using len(), finding parts of a string, and splitting.
