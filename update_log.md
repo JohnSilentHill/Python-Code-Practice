@@ -5,6 +5,7 @@
 ### Custom Terminal
 
 > Made the framework for a custom terminal.
+> 
 > Added some basic commands ("help", "exit", "hello", "pwordgen")
 
 ### Password Generator
