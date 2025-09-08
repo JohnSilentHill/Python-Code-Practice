@@ -10,6 +10,7 @@
 ### Password Generator
 
 > Learned some cool stuff about importing strings, using len(), finding parts of a string, and splitting.
+> Actually made it work!
 
 ## 06.09.25
 
