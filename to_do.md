@@ -14,5 +14,5 @@
 
 ## Custom Terminal
 > Expand
->
+
 > Eventually improve the help command so it allows you to define what item you want help with.
