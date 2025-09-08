@@ -12,5 +12,7 @@
 - Toad Venom : 10
 - Sour Diesel : 6
 
-## Custom Command Console
-> Make this lol
+## Custom Terminal
+> Expand
+>
+> Eventually improve the help command so it allows you to define what item you want help with.
