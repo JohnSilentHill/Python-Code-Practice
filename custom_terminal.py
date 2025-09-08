@@ -92,6 +92,12 @@ commands = {
     "pwordgen": generate_password
 }
 
+def repeaterror():
+    print("Bro please just type 'help' already.")
+    print("")
+
+error_count = 0
+
 # Pre user input terminal banner
 print("")
 delayed_print("JohnSilentHill's Terminal [Version 1.0.0]", 0.2)
@@ -106,4 +112,6 @@ while True:
         commands[user_input]()  # () is important. It actually calls the function here.
     else:
         print(f"'{user_input}' is not recognized as an internal or external command,\noperable program or batch file.\n")
-
+        error_count += 1
+        if error_count >= 10:
+            repeaterror()
