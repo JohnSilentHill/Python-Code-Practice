@@ -18,9 +18,9 @@
 
 > Tidied up the user input function by adding more line breaks.
 
-### Created a New Project
+### Password Generator
 
-> Nothing is here just yet.
+> Learned some cool stuff about importing strings, using len(), finding parts of a string, and splitting.
 
 
 
