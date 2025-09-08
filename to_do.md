@@ -12,5 +12,5 @@
 - Toad Venom : 10
 - Sour Diesel : 6
 
-## Custom Command Line 
+## Custom Command Console
 > Make this lol
