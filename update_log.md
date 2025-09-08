@@ -6,7 +6,8 @@
 
 > Made the framework for a custom terminal.
 > 
-> Added some basic commands ("help", "exit", "hello", "pwordgen")
+> Added some basic commands ("help", "exit", "info", "gotop", "neofetch", "hello", "pwordgen")
+
 
 ### Password Generator
 
