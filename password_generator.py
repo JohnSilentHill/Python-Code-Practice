@@ -12,7 +12,24 @@ def delayed_print(text, delay=0.5):
     print(text)
     time.sleep(delay)
 
+delayed_print("-----------------")
 delayed_print("Usage: 'generate password [length]", 0.5)
+delayed_print("-----------------")
+
+# Actual password generation function
+
+def generate_password(length):
+    # 1. Create pool of characters to choose from
+    characters = string.ascii_letters + string.digits
+
+    # 2. Randomly pick characters
+    password_random = random.choices(characters, k=length) # Generates characters, 'k' = how many times it pulls from 'characters'
+
+    # 3. Create password
+    password = ''.join(password_random) # '' Refers to the separator, being no spaces between returned characters. .join makes a string
+
+    # 4. This just returns a generated outpu
+    return password
 
 # The command:
 while True:
@@ -24,26 +41,20 @@ while True:
     # if amount of parts = 3, and the first part [0] is "generate", and the second part [1] is "password":
    
         if parts[2].isdigit():
-
             length = int(parts[2]) # This sets up for defining the length of the password by the integer used in part [2], or the 1-10 input.
-        
-            # Actual password generation function
-            def generate_password(length):
-                # 1. Create pool of characters to choose from
-                characters = string.ascii_letters + string.digits + string.punctuation
-
-                # 2. Randomly pick characters
-                password_list = random.choices(characters, k=length) # Generates characters, 'k' = how many times it pulls from 'characters'
-
-                # 3. Create password
-                password = ''.join(password_list)
-
-                # 4. Finally print it as an output
-                print(password)
+            if length < 5:
+                delayed_print("Minium length of 5 characters.")
+            else:
+                password = generate_password(length)
+                delayed_print("-----------------")
+                if length > 20:
+                    delayed_print("Are you really going to remember this?")
+                delayed_print("Your password:")
+                delayed_print(password)                 
             break
     
         else:
-            delayed_print("Not a valid password length.") # User didn't input 1-10 after "generate password"
+            delayed_print("Not a valid password length.") # User inputted <5 after "generate password"
     else:
         delayed_print("Unrecognised command.")
 
