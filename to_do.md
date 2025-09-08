@@ -12,5 +12,5 @@
 - Toad Venom : 10
 - Sour Diesel : 6
 
-## Password Generator
-> Make password generator lol
+## Custom Command Line 
+> Make this lol
