@@ -19,8 +19,16 @@ delayed_print("-----------------")
 # Actual password generation function
 
 def generate_password(length):
-    # 1. Create pool of characters to choose from
-    characters = string.ascii_letters + string.digits
+
+    print("Would you like to include punctuation? (Y/N)")
+    userinput = input("> ").strip().lower()
+    
+    # 1. Create pool of characters to choose from based on user choice
+    if userinput == "y":
+        characters = string.ascii_letters + string.digits + string.punctuation
+    
+    else:
+        characters = string.ascii_letters + string.digits
 
     # 2. Randomly pick characters
     password_random = random.choices(characters, k=length) # Generates characters, 'k' = how many times it pulls from 'characters'
@@ -28,7 +36,7 @@ def generate_password(length):
     # 3. Create password
     password = ''.join(password_random) # '' Refers to the separator, being no spaces between returned characters. .join makes a string
 
-    # 4. This just returns a generated outpu
+    # 4. This just returns a generated output
     return password
 
 # The command:
