@@ -5,6 +5,8 @@
 ### Password Generator
 
 > Added an option to toggle punctuation as a question before generation.
+>
+> Cleaned some stuff up and defined variables above while True loop.
 
 ## 08.09.25
 
