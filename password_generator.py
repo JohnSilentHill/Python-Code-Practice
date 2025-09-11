@@ -39,6 +39,11 @@ def generate_password(length):
     # 4. This just returns a generated output
     return password
 
+def finalgen():
+    password = generate_password(length)
+    delayed_print("-----------------\nYour password:")
+    delayed_print(password)
+
 # The command:
 while True:
     generate = input("> ").strip().lower() # The user input starts with "> "
@@ -53,19 +58,11 @@ while True:
             if length < 5:
                 delayed_print("Minium length of 5 characters.")
             else:
-                password = generate_password(length)
-                delayed_print("-----------------")
-                if length > 20:
-                    delayed_print("Are you really going to remember this?")
-                delayed_print("Your password:")
-                delayed_print(password)                 
-            break
-    
+                finalgen()
         else:
             delayed_print("Not a valid password length.") # User inputted <5 after "generate password"
     else:
         delayed_print("Unrecognised command.")
-
 
 
 
