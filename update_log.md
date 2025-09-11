@@ -2,6 +2,12 @@
 
 ## 08.09.25
 
+### Password Generator
+
+> Added an option to toggle punctuation as a question before generation.
+
+## 08.09.25
+
 ### Custom Terminal
 
 > Made the framework for a custom terminal.
