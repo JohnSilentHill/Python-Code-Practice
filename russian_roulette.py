@@ -31,8 +31,6 @@ def vsComputer():
 
     while bullets > 0:
         if player_turn:
-            typing("Your turn.")
-            time.sleep(1)
             typing(f"{bullets} bullets in the chamber. Pull the trigger? (y/n)")
             choice = input("> ").strip().lower()
             if choice == "y":
@@ -46,11 +44,13 @@ def vsComputer():
                     time.sleep(1)
                     bullets -= 1
             elif choice == "n":
-                typing("Exiting...")
-                break
+                typing("You backed out.")
+                typing("Restarting...")
+                gameStart()
             else:
-                typing("That wasn't Y or N, exiting regardless...")
-                break
+                typing("Input was not (y/n). Restarting anyway...")
+                gameStart()
+                
         else:
             typing(f"{bullets} bullets in the chamber.")
             time.sleep(1)
@@ -87,23 +87,32 @@ def solo():
             elif continueAsk_solo == "n":
                 if bullets == 1:
                     typing("Smart move.")
-                    typing("Exiting...")
+                    typing("Restarting...")
+                    gameStart()
                 else:
-                    typing("Exiting...")
+                    typing("You backed out.")
+                    typing("Restarting...")
+                    gameStart()
                 break
             else:
                 typing("That wasn't Y or N, exiting regardless...")
+                gameStart()
                 break
     
 # Asks if you want to play solo or vs computer
+def gameStart():
+    time.sleep(1)
+    typing("-----------------\nRUSSIAN ROULETTE\n-----------------")
+    time.sleep(1)
+    typing("Do you want to play against the computer? (Y/N)")
+    playerChoice = input("> ")
+    if playerChoice == "y":
+        vsComputer()
 
-typing("Do you want to play against the computer? (Y/N)")
-playerChoice = input("> ")
-if playerChoice == "y":
-    vsComputer()
+    elif playerChoice == "n":
+        solo()
 
-elif playerChoice == "n":
-    solo()
+    else:
+        typing("Please select Y or N.")
 
-else:
-    typing("Please select Y or N.")
+gameStart()
